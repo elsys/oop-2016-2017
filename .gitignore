@@ -1,0 +1,12 @@
+*~
+a.out
+*.o
+experiments
+.metadata
+RemoteSystemsTempFiles
+erlide.log
+erlide.log.lck
+.recommenders
+Experiments
+rpc_monitor*.dump
+*.swp
