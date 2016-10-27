@@ -4,13 +4,17 @@ using namespace std;
 
 class Point {
     double x_, y_;
-    
+    const double begin_x_, begin_y_;
+
     public:
     
-    Point(double x, double y) {
-        x_ = x;
-        y_ = y;
-    }
+    Point(double x, double y)
+            : begin_x_(0), begin_y_(0), x_(x), y_(y) {}
+    
+    Point(double begin_x, double begin_y,
+            double x, double y)
+            : begin_x_(begin_x), begin_y_(begin_y),
+              x_(x), y_(y) {}
     
     double get_x() const {
         return x_;
@@ -37,6 +41,11 @@ class Point {
         cout << "Point(" << x_ << ", "
                          << y_ << ")" << endl;
     }
+    
+    void print_absolute() const {
+        Point(x_ + begin_x_, y_ + begin_y_).print();
+    }
+
 };
 
 int main() {
@@ -49,6 +58,10 @@ int main() {
     
     Point p3(0, 0);
     p3.set_y(10).set_x(11).print();
+    
+    Point p4(10, 10, 1, 1);
+    p4.print();
+    p4.print_absolute();
     return 0;
 }
 
