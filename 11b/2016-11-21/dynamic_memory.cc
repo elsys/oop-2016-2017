@@ -24,6 +24,10 @@ public:
 		cout << "~Foo() called..." << endl;
 	}
 	
+	Foo& operator=(const Foo& other) {
+		
+	}
+	
 	int get_bar() const {
 		return bar_;
 	}
