@@ -45,10 +45,10 @@ Vector::~Vector() {
 * `bool empty() const;`
 Връща `true` когато вектора е празен (т.е. когато `size()==0`).
 
-* `int& operator[](size_type n);`
+* `int& operator[](int n);`
 Връща препратка към `n`-тия елемент на вектора (елемента с индекс `n`).
 
-* `const int& operator[](size_type n) const;`
+* `const int& operator[](int n) const;`
 Връща константна препратка към `n`-тия елемент на вектора (елемента с индекс `n`).
 
 * `void clear();`
@@ -77,7 +77,7 @@ Vector::~Vector() {
 * `const int& back() const;`
 Връща константна препратка към последния елемент на вектора.
 
-* `void push_back(const T&);`
+* `void push_back(const int& value);`
 Добавя нов елемент след последния елемент на вектора.
 
 * `void pop_back();`
@@ -120,7 +120,6 @@ public:
 		bool operator==(const iterator& other) const;
 		bool operator!=(const iterator& other) const;
 		int& operator*();
-		int* operator->();
 	};
 	...
 	iterator begin();
@@ -149,7 +148,6 @@ public:
 		bool operator==(const iterator& other) const;
 		bool operator!=(const iterator& other) const;
 		const int& operator*();
-		const int* operator->();
 	};
 	...
 	const_iterator begin() const;
