@@ -14,5 +14,13 @@ $(OUT): $(OBJ)
 
 
 clean:
-	rm -f *~ a.out $(OUT) *.o
+	rm -f *~ a.out $(OUT) *.o files.pdf
 
+
+files.pdf:
+	enscript -r -2 --highlight --line-numbers -o - operation.hh \
+	context.hh interpreter.hh interpreter.cc binary_operation.hh \
+	binary_operation.cc plus.hh plus.cc composite_operation.hh \
+	composite_operation.cc main.cc Makefile | ps2pdf - files.pdf
+
+pdf: files.pdf

@@ -10,3 +10,6 @@ erlide.log.lck
 Experiments
 rpc_monitor*.dump
 *.swp
+.cproject
+.project
+.settings
