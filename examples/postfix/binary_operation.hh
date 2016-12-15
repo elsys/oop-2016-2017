@@ -6,17 +6,16 @@
 class BinaryOperation: public Operation {
 
 public:
-	BinaryOperation(const std::string& name)
-	: Operation(name)
-	{}
-	
-	void execute(Context& context) const;
-	
+    BinaryOperation(const std::string& name)
+            : Operation(name) {
+    }
+
+    void execute(Context& context) const;
+
 protected:
-	virtual double do_execute(double a1, double a2) const=0;
+    virtual double do_execute(double a1, double a2) const=0;
 
 };
-
 
 #endif
 

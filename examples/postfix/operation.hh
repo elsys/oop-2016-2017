@@ -6,30 +6,22 @@
 class Context;
 
 class Operation {
-	const std::string name_;
+    const std::string name_;
 
 public:
-	Operation(const std::string& name)
-	: name_(name)
-	{}
+    Operation(const std::string& name)
+            : name_(name) {
+    }
 
+    virtual ~Operation() {
+    }
 
-	virtual ~Operation(){}
-	
-	virtual void execute(Context& context) const =0;
+    virtual void execute(Context& context) const =0;
 
-	const std::string& get_name() const {
-		return name_;
-	}
+    const std::string& get_name() const {
+        return name_;
+    }
 };
 
-
 #endif
-
-
-
-
-
-
-
 

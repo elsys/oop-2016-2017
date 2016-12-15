@@ -4,26 +4,26 @@
 
 #include <iostream>
 
-class Minus:public BinaryOperation {
+class Minus: public BinaryOperation {
 public:
-	Minus()
-	: BinaryOperation("-")
-	{}
-	
+    Minus()
+            : BinaryOperation("-") {
+    }
+
 protected:
-	double do_execute(double a1, double a2) const {
-		return a1-a2;
-	}
+    double do_execute(double a1, double a2) const {
+        return a1 - a2;
+    }
 };
 
 int main(int argc, char* argv[]) {
 
-	Interpreter calc;
-	calc.add_operation(new Plus());
-	calc.add_operation(new Minus());
-	
-	calc.interpret(std::cin);
+    Interpreter calc;
+    calc.add_operation(new Plus());
+    calc.add_operation(new Minus());
 
-	return 0;
+    calc.interpret(std::cin);
+
+    return 0;
 }
 

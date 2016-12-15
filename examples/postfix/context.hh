@@ -4,12 +4,12 @@
 #include <stack>
 
 class Context {
-	std::stack<double> argument_stack_;
+    std::stack<double> argument_stack_;
 public:
-	
-	std::stack<double>& get_argument_stack() {
-		return argument_stack_;
-	}
+
+    std::stack<double>& get_argument_stack() {
+        return argument_stack_;
+    }
 
 };
 

@@ -6,13 +6,11 @@
 class Plus: public BinaryOperation {
 
 public:
-	Plus();
+    Plus();
 
-protected:	
-	virtual double do_execute(double a1, double a2) const;
+protected:
+    virtual double do_execute(double a1, double a2) const;
 };
-
-
 
 #endif
 
