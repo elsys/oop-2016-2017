@@ -15,7 +15,6 @@
 
 using namespace std;
 
-
 Operation* Calculator::get_operation(string symbol) {
     for (vector<Operation*>::iterator it = operations_.begin();
             it != operations_.end(); it++) {
@@ -26,7 +25,6 @@ Operation* Calculator::get_operation(string symbol) {
     return 0;
 }
 
-
 void Calculator::run(istream& in, ostream& out) {
     while (1) {
         out << "values(" << context.size() << "): ";
@@ -36,74 +34,72 @@ void Calculator::run(istream& in, ostream& out) {
         if (!in) {
             break;
         }
-		if (input[0] == '\\') {
-			define_new_operation(input, in);
-		}
-        Operation* operation = get_operation(input);
-        if (operation) {
-            try {
-                operation->execute(context);
-                cout << "res> " << context.peek() << endl;
-
-            } catch (const CalculatorError& ex) {
-                cerr << ">>> error in executing "
-                        << operation->get_symbol()
-                        << "; "
-                        << ex.get_message()
-                        << endl;
-            }
+        if (input[0] == '\\') {
+            define_new_operation(input, in);
         } else {
-            // is it a double?
-            double new_value;
-            stringstream istr(input);
-            istr >> new_value;
-            if (istr) {
-                context.push(new_value);
+            Operation* operation = get_operation(input);
+            if (operation) {
+                try {
+                    operation->execute(context);
+                    cout << "res> " << context.peek() << endl;
+
+                } catch (const CalculatorError& ex) {
+                    cerr << ">>> error in executing "
+                            << operation->get_symbol() << "; "
+                            << ex.get_message() << endl;
+                }
             } else {
-                throw CalculatorError("unknown operation...");
+                // is it a double?
+                double new_value;
+                stringstream istr(input);
+                istr >> new_value;
+                if (istr) {
+                    context.push(new_value);
+                } else {
+                    throw CalculatorError("unknown operation...");
+                }
             }
         }
     }
 }
 
-void Calculator::define_new_operation(string operation_name, istream& in) {
-	CompositeOperation* new_operation = new CompositeOperation(
-			operation_name.substr(1, operation_name.size() - 1));
+void Calculator::define_new_operation(string operation_name,
+        istream& in) {
+    CompositeOperation* new_operation = new CompositeOperation(
+            operation_name.substr(1));
 
-	while (1) {
-		string input;
-		in >> input;
-		
-		if (!in) {
-			break;
-		}
-		
-		Operation* operation = get_operation(input);
-		if (operation) {
-			new_operation -> add_operation(operation);
-		} else if (input == "def") {
-			break;
-		} else {
-			double new_value;
+    while (1) {
+        string input;
+        in >> input;
+
+        if (!in) {
+            break;
+        }
+
+        Operation* operation = get_operation(input);
+        if (operation) {
+            new_operation->add_operation(operation);
+        } else if (input == "def") {
+            break;
+        } else {
+            double new_value;
             stringstream istr(input);
             istr >> new_value;
             if (istr) {
-                new_operation -> add_operation(new Literal(new_value));
+                new_operation->add_operation(new Literal(new_value));
             } else {
                 delete new_operation;
-				cout << "unknown op" << endl;
+                cout << "unknown op" << endl;
                 throw CalculatorError("unknown operation...");
             }
-		}
-	}
-	
-	addOperation(new_operation);
+        }
+    }
+
+    addOperation(new_operation);
 }
 
 void Calculator::addOperation(Operation* operation) {
+    cout << "operation added: " << operation->get_symbol() << endl;
     operations_.push_back(operation);
 }
-
-
-
 
