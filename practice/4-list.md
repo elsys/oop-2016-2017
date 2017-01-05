@@ -14,7 +14,7 @@ class List {
         Elem* next_;
         Elem* prev_;
 
-        Elem(T val)
+        Elem(int val)
         : data_(val),
           next_(0),
           prev_(0)
@@ -112,7 +112,7 @@ List::List()
 Примерна декларация на класа `iterator` е дадена по-долу:
 
 ```C++
-class List{
+class List {
 ...
 public:
     class iterator {
@@ -142,7 +142,7 @@ public:
 Примерна декларация на тези класове и методи е дадена по-долу:
 
 ```C++
-class List{
+class List {
 ...
 public:
     class const_iterator {
