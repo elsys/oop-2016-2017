@@ -1,16 +1,16 @@
 # Задача 3: Реализация на абстрактния тип данни `List`
 
 
-## Условие на задачата
 ## Предварителни данни
 
 Целта на задачата е да реализирате абстрактния тип данни 
-двусвързан списък `List`. Примерна организация на работата е класа е:
+двусвързан списък `List`. Елементите на списъка трябва да са от типа `int`.
+Примерна организация на работата е класа е:
 
 ```C++
-template<class T> class List {
+class List {
     struct Elem {
-        T data_;
+        int data_;
         Elem* next_;
         Elem* prev_;
 
@@ -32,8 +32,7 @@ public:
 Примерна реализация на конструктора е дадена по-долу. 
 
 ```C++
-template<class T>
-List<T>::List()
+List::List()
 : head_(0),
   tail_(0)
 {}
@@ -46,28 +45,28 @@ List<T>::List()
 към началото и към края на двусвързания списък.
 
 
-* `void push_back(const T&);`
+* `void push_back(const int&);`
 Добавя нов елемент след последния елемент на списъка.
 
 * `void pop_back();`
 Изтрива последния елемент на списъка.
 
-* `void push_front(const T&);`
+* `void push_front(const int&);`
 Добавя нов елемент преди първия елемент на списъка.
 
 * `void pop_front();`
 Изтрива първият елемент на списъка.
 
-* `T& front();`
+* `int& front();`
 Връща препратка към първия елемент на списъка.
 
-* `const T& front() const;`
+* `const int& front() const;`
 Връща  константна препратка към първия елемент на списъка.
 
-* `T& back();`
+* `int& back();`
 Връща препратка към последния елемент на списъка.
 
-* `const T& back() const;`
+* `const int& back() const;`
 Връща константна препратка към последния елемент на списъка.
 
 
@@ -113,7 +112,6 @@ List<T>::List()
 Примерна декларация на класа `iterator` е дадена по-долу:
 
 ```C++
-template<class T>
 class List{
 ...
 public:
@@ -124,8 +122,8 @@ public:
         iterator operator++(int);
         bool operator==(const iterator& other) const;
         bool operator!=(const iterator& other) const;
-        T& operator*();
-        T* operator->();
+        int& operator*();
+        int* operator->();
     };
     ...
     iterator begin();
@@ -144,7 +142,6 @@ public:
 Примерна декларация на тези класове и методи е дадена по-долу:
 
 ```C++
-template<class T>
 class List{
 ...
 public:
@@ -155,8 +152,8 @@ public:
         iterator operator++(int);
         bool operator==(const iterator& other) const;
         bool operator!=(const iterator& other) const;
-        const T& operator*();
-        const T* operator->();
+        const int& operator*();
+        const int* operator->();
     };
     ...
     const_iterator begin() const;
@@ -179,7 +176,7 @@ public:
 
 Трябва да се реализират набор от методи, които да вмъкват и изтриват елементи.
 
-* `iterator insert(iterator pos, const T& x);`
+* `iterator insert(iterator pos, const int& x);`
 Вмъква нов елемент в списъка преди елемента, към който е насочен 
 итератора `pos`.
 
@@ -206,10 +203,10 @@ public:
 ./hw03list 1 6 15 21
 ```
 
-Започвайки работа програмата трябва да създаде две списъка 
-`l1` и `l2` от типа `List<int>`. 
+* Започвайки работа програмата трябва да създаде две списъка 
+`l1` и `l2` от типа `List`. 
 
-Първата двойка числа, които програмата получава като аргументи от командния 
+* Първата двойка числа, които програмата получава като аргументи от командния 
 ред трябва да се схваща като дефиниция на диапазон `[b1,e1)` 
 от стойности на елементите на първият списък, а втората двойка --- като диапазон 
 `[b2,e2)` от стойности на елементите на втория списък. 
