@@ -22,7 +22,7 @@ public:
         return size_;
     }
 
-    bool under_attach(int row, int col) const {
+    bool under_attack(int row, int col) const {
         for (int i = 0; i < col; ++i) {
             if (board_[i] == -1) {
                 continue;
@@ -43,7 +43,7 @@ public:
         }
         std::cout << "exploring col " << col << std::endl;
         for (int row = 0; row < size(); ++row) {
-            if (!under_attach(row, col)) {
+            if (!under_attack(row, col)) {
                 board_[col] = row;
                 std::cout << "placing queen on row " << row
                         << std::endl;
