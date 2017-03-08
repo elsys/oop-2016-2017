@@ -139,6 +139,21 @@ public:
         return ncell;
     }
 
+	bool has_neighbour(const Cell& cell, Direction dir) const {
+		if(dir == DOWN && cell.row() == 0) {
+			return false;
+		}
+		if(dir == UP && cell.row() == height() - 1) {
+			return false;
+		}
+		if(dir == LEFT && cell.col() == 0) {
+			return false;
+		}
+		if(dir == RIGHT && cell.col() == width() -1 ) {
+			return false;
+		}
+		return true;
+	}
 };
 
 int main() {
