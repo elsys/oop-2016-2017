@@ -34,7 +34,7 @@ public class BallContainerTest {
 
 		container.add(new Ball(2.01));
 		container.add(new Ball(2.0));
-		assertEquals(3.01,
+		assertEquals(4.01,
 				container.getVolume(), 0.01);
 	}
 
