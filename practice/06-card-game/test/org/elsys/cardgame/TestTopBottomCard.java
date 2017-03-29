@@ -43,7 +43,7 @@ public class TestTopBottomCard extends AbstractWarTest {
 		game.process("draw_bottom_card");
 		Card newBottomCard = game.getDeck().bottomCard();
 		assertNotEquals(newBottomCard, bottomCard);
-		game.process("draw_top_card");
+		game.process("draw_bottom_card");
 		assertNotEquals(newBottomCard, game.getDeck().bottomCard());
 	}
 
