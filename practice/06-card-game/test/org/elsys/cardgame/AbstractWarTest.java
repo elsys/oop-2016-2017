@@ -8,7 +8,7 @@ import org.elsys.cardgame.impl.WarDeck;
 import org.elsys.cardgame.impl.WarGame;
 import org.junit.Before;
 
-public class AbstractWarTest {
+public abstract class AbstractWarTest {
 
 	protected Game game;
 
