@@ -22,6 +22,10 @@ public class CalculatorAbstractTest {
 		out = new ByteArrayOutputStream();
 		calculator = new Calculator(new PipedInputStream(inSrc), new PrintStream(out));
 	}
+	
+	protected Calculator getCalculator() {
+		return calculator;
+	}
 
 	protected void input(String value) {
 		try {
