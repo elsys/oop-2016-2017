@@ -1,9 +1,6 @@
-package org.elsys.serializer.json;
+package org.elsys.serializer;
 
 import java.util.Collection;
-
-import org.elsys.serializer.AbstractSerializer;
-import org.elsys.serializer.Serializer;
 
 public class JsonSerializer extends AbstractSerializer implements Serializer {
 

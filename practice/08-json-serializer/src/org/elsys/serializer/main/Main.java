@@ -2,8 +2,8 @@ package org.elsys.serializer.main;
 
 import java.util.Arrays;
 
+import org.elsys.serializer.JsonSerializer;
 import org.elsys.serializer.Serializer;
-import org.elsys.serializer.json.JsonSerializer;
 
 public class Main {
 
