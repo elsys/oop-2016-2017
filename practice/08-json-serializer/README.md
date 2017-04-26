@@ -7,7 +7,6 @@
 формат.
 
 Например: ако имате обект от типа на класа `Student`:
-```
 ```java
 public class Student {
     
