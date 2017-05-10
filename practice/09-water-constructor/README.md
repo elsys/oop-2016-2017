@@ -1,6 +1,6 @@
 #Конструиране на молекули на водата
 
-Based on [Allen B. Downey, The Little Book of Semaphores](http://www.greenteapress.com/semaphores/downey08semaphores.pdf)
+Based on [Allen B. Downey, The Little Book of Semaphores](http://greenteapress.com/semaphores/LittleBookOfSemaphores.pdf)
 
 
 ## Условие: Building H2O
