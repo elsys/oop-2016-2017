@@ -65,7 +65,7 @@ public class CompanyTest {
 	public void testClose() {
 		Company company = new Company(10);
 		company.hire(new Employee(1, "Petar", 2));
-		company.hire(new Employee(2, "Petar", 9));
+		company.hire(new Employee(2, "Petar", 8));
 		company.close();
 		assertEquals(0, company.getBudget(), 0.01);
 		assertEquals(0, company.getBudgetLeft(), 0.01);
@@ -75,7 +75,7 @@ public class CompanyTest {
 	public void testGetManagersWithLevel() {
 		Company company = new Company(10);
 		company.hire(new Manager(1, "Petar", 2));
-		Manager manager = new Manager(2, "Petar", 9);
+		Manager manager = new Manager(2, "Petar", 8, 2);
 		company.hire(manager);
 		assertTrue(company.getManagersWithLevel(2).contains(manager));
 	}
